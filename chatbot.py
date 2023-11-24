@@ -26,8 +26,6 @@ import tempfile
 from urllib.parse import urljoin
 from urllib.parse import urlparse
 from time import sleep
-from apscheduler.schedulers.background import BackgroundScheduler
-from apscheduler.triggers.cron import CronTrigger
 from flask_caching import Cache
 from flask import current_app
 from fpdf import FPDF
@@ -147,22 +145,6 @@ def get_current_monthly_usage(tenant_id):
     return current_count, remaining_messages
 
 
-
-# Reset maandelijkse teller
-def reset_monthly_counter():
-    now = datetime.now()
-    month_year = now.strftime("%Y-%m")
-    limit_key = f"monthly_limit:{month_year}"
-    redis_client.set(limit_key, 0)
-    print(f"Reset voltooid voor maand: {month_year}.")
-
-# Voeg de reset-taak toe aan de scheduler
-scheduler = BackgroundScheduler()
-scheduler_time = config['scheduler']
-scheduler.add_job(reset_monthly_counter, CronTrigger(day=scheduler_time['day'], hour=scheduler_time['hour'], minute=scheduler_time['minute']))
-scheduler.start()
-
-print("Scheduler is gestart en taak is toegevoegd.")
 
     
 # Functie om te controleren of de initialisatie al heeft plaatsgevonden
