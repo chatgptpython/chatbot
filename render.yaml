@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: Chatproducties
+    env: python-3.11.2
+    buildCommand: pip install -r requirements.txt
+    startCommand: python chatbot.py
+    envVars:
+      - key: OPENAI_API_KEY
+        fromEnvVar: OPENAI_API_KEY
+      - key: PINECONE_API_KEY
+        fromEnvVar: PINECONE_API_KEY
+      - key: PINECONE_API_ENV
+        fromEnvVar: PINECONE_API_ENV
+      - key: PYTHON_VERSION
+        fromEnvVar: PYTHON_VERSION

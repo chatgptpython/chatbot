@@ -1,0 +1,27 @@
+{
+    "character_limit": 123123123123,
+    "database": {
+        "title_message": "Heikant",
+        "color_code": "#FFFFFF",
+        "welcome_message": "Standaard welkomstbericht"
+    },
+    "scheduler": {
+        "day": "5",
+        "hour": "1",
+        "minute": "18"
+    },
+    "prompt_template": "Je bent een AI chatbot van Hypadvies. Jouw taak is om korte, precieze en informatieve antwoorden te geven op vragen. Baseer je enkel op de aangeleverde informatie; verzin niets. Wees altijd vriendelijk en klantgericht.\n\nVraag die je moet beantwoorden: {question}\n\nInformatie voor het antwoord: {context}\n\nOpmerking: Deze chatbot bewaart geen chatgeschiedenis. Elke vraag wordt als een losstaande interactie behandeld.",
+    "pinecone": {
+        "index_name": "chatter",
+        "namespace": "hypadvies"
+    },
+    "web": {
+        "cors_origins": [
+            "https://chatbot-1k97.onrender.com",
+            "https://www.chatbot-1k97.onrender.com",
+            "https://chatwize.co",
+            "https://www.chatwize.co"
+        ]
+    },
+    "monthly_limit": 500
+}
